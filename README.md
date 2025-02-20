@@ -4,7 +4,7 @@ The capability to ingest thousands or millions of records per second while allow
 
 This demo shows how InterSystems IRIS can ingest thousands of records per second while allowing for simultaneous queries on the data on the same cluster with very high performance for both ingestion and querying, and with low resource utilization. The demo works on a single InterSystems IRIS instance or on an InterSystems IRIS cluster on the cloud.
 
-The same demo can be run on SAP HANA, MySQL, SqlServer and Amazon Aurora to compare performance and resource utilization in “apples-to-apples” comparisons. 
+The same demo can be run on PostgreSQL, MySQL, SqlServer and Amazon Aurora to compare performance and resource utilization in “apples-to-apples” comparisons. 
 
 You can run the tests on AWS! Here are some results:
 ******
@@ -35,29 +35,14 @@ You can currently run this demo on your PC with InterSystems IRIS, MySQL, SqlSer
 
 ### 2.1 - Run it with InterSystems IRIS Community
 
-To run the demo on your PC, make sure you have Docker installed on your machine. You can quickly get it up and running with the following commands on your Mac or Linux PC:
+To run the demo on your PC, make sure you have Docker installed on your machine. 
+You can clone this repository to your local machine using git to get the entire source code. You will need git installed and you would need to be on your git folder:
 
 ```bash
-wget https://raw.githubusercontent.com/intersystems-community/irisdemo-demo-htap/master/docker-compose.yml
+git clone https://github.com/fanji-isc/IRIS-Speed-Test
+cd IRIS-Speed-Test
 docker-compose up
 ```
-
-If you are runing on Windows, download the [docker-compose.yml](https://raw.githubusercontent.com/intersystems-community/irisdemo-demo-htap/master/docker-compose.yml) file to a folder. 
-Open a command prompt and change to that folder. Then type:
-
-```BAT
-c:\MyFolder\docker-compose up
-```
-
-You can also clone this repository to your local machine using git to get the entire source code. You will need git installed and you would need to be on your git folder:
-
-```bash
-git clone https://github.com/intersystems-community/irisdemo-demo-htap
-cd irisdemo-demo-htap
-docker-compose up
-```
-
-Both techniques should work and should trigger the download of the images that compose this demo and it will soon start all the containers.
 
 When starting, you will see lots of messages from all the containers that are staring. That is fine. Don't worry!
 
@@ -88,8 +73,9 @@ This is important, specially if you are going back and forth between running the
 
 To run this demo against MySQL:
 
+
 ```bash
-wget https://raw.githubusercontent.com/intersystems-community/irisdemo-demo-htap/master/docker-compose-mysql.yml
+cd IRIS-Speed-Test
 docker-compose -f ./docker-compose-mysql.yml up
 ```
 
@@ -104,29 +90,28 @@ docker-compose -f ./docker-compose-mysql.yml rm
 
 This is important, specially if you are going back and forth between running the speed test on one database (say InterSystems IRIS) and some other.
 
-In our tests, we found InterSystems IRIS to ingest data 25X faster than MySQL and Amazon Aurora.
+In our tests, we found InterSystems IRIS to ingest data 25X faster than MySQL 
 
-There is a **docker-compose-mariadb.yml** file for **MariaDB** as well.
 
 ### 2.3 - SQL Server 2022 on your PC
 
 To run this demo against SQL Server:
 
 ```bash
-wget https://raw.githubusercontent.com/intersystems-community/irisdemo-demo-htap/master/docker-compose-sqlserver.yml
+cd IRIS-Speed-Test
 docker-compose -f ./docker-compose-sqlserver.yml up
 ```
 
 As before, leave this terminal window open and open a browser at http://localhost:10000.
 
-In our tests running on a local PC, we found InterSystems IRIS to ingest data 2.5X faster than SQL Server while query rates were 400X faster! We will test it against AWS RDS SQL Server and report.
+In our tests running on a local PC, we found InterSystems IRIS to ingest data 2.5X faster than SQL Server while query rates were 400X faster! 
 
 ### 2.4 - PostgreSQL on your PC
 
 To run this demo against PostgreSQL:
 
 ```bash
-wget https://raw.githubusercontent.com/intersystems-community/irisdemo-demo-htap/master/docker-compose-postgres.yml
+cd IRIS-Speed-Test
 docker-compose -f ./docker-compose-postgres.yml up
 ```
 
