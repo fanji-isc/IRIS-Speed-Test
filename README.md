@@ -7,58 +7,25 @@ This demo shows how InterSystems IRIS can ingest thousands of records per second
 The same demo can be run on SAP HANA, MySQL, SqlServer and Amazon Aurora to compare performance and resource utilization in “apples-to-apples” comparisons. 
 
 You can run the tests on AWS! Here are some results:
-* [InterSystems IRIS x SAP HANA Express 2.0 run on AWS](https://github.com/intersystems-community/irisdemo-demo-htap/blob/master/ICM/DOC/IRIS_x_SAPHANA.md). InterSystems IRIS:
-  -	Ingested 59.9% more records	
-  - Was ingesting them 59.9% faster in average
-  - Retrieved 2732.8% more records
-  - Was retrieving them 2732.1% faster in average
-* [InterSystems IRIS x AWS Aurora (MySQL) 5.6.10a (parallel query)](https://github.com/intersystems-community/irisdemo-demo-htap/blob/master/ICM/DOC/IRIS_x_AWSAuroraMySql.md). InterSystems IRIS:					
-  - Ingested 1456.7% more records
-  - Was ingesting them 1456.3% faster
-  - Retrieved 360.9% more records
-  - Was retrieving them 360.7% faster
-* [InterSystems IRIS x AWS RDS SQL Server 2017](https://github.com/intersystems-community/irisdemo-demo-htap/blob/master/ICM/DOC/IRIS_x_MSSQLServerEnterprise.md). InterSystems IRIS:					
-  - The results were astounding but we can't publish them because SQL Server's EULSA prevents us from doing it.
-  - But you can run the test yourself and find out! :)
-* [InterSystems IRIS x Sybase ASE 16.0 SP03 PL08, public cloud edition, premium version](https://github.com/intersystems-community/irisdemo-demo-htap/blob/master/ICM/DOC/IRIS_x_SAPSybaseASE.md). InterSystems IRIS:					
-  - Ingested 4862.8% more records
-  - Was ingesting them 6733.4% faster AEOT
-  - Retrieved 3282% more records
-  - Was retrieving them 5654.6% faster AEOT
-* [InterSystems IRIS x AWS RDS PostgreSQL 12.3](https://github.com/intersystems-community/irisdemo-demo-htap/blob/adding-postgresql/ICM/DOC/IRIS_x_AWSPostgreSql.md). InterSystems IRIS:					
-  - Ingested 110.2% more records
-  - Was ingesting them 108.2% faster AEOT
-  - Retrieved 592.7% more records
-  - Was retrieving them 718% faster AEOT
-* [InterSystems IRIS x AWS MariaDB](https://github.com/intersystems-community/irisdemo-demo-htap/blob/master/ICM/DOC/IRIS_x_AWSMariaDB.md). InterSystems IRIS:					
-  - Ingested 620.9% more records
-  - Was ingesting them 717.3% faster AEOT
-  - Retrieved 313.6% more records
-  - Was retrieving them 296.5% faster AEOT
-* [InterSystems IRIS x AWS RDS Oracle Enterprise 19.0](https://github.com/intersystems-community/irisdemo-demo-htap/blob/master/ICM/DOC/IRIS_x_AWSOracle.md). InterSystems IRIS:
-  - Ingested 402.1% more records	
-  - Was ingesting them 400.3% faster
-  - Retrieved 176.3% more records	
-  - Was retrieving them 176.2% faster
+******
+
 
 You can run the tests on your own PC using Dockers (3 CPUs and 7GB of RAM)! Here are some results:
-* InterSystems IRIS x MySQL 8.0:
+* InterSystems IRIS x MySQL 9.1.0:
   * InterSystems IRIS ingests 3043% more records than MySQL 8.0
   * InterSystems IRIS is 643% faster than MySQL 8.0 at querying
-* InterSystems IRIS x SQL Server 2019 for Ubuntu
+* InterSystems IRIS x SQL Server 2022
   - The results were astounding but we can't publish them because SQL Server's EULSA prevents us from doing it.
   - But you can run the test yourself and find out! :)
-  * To be fair, we will be testing SQL Server on AWS and Azure in the future. Stay tuned!
+* InterSystems IRIS x Postgres 14:
+  * InterSystems IRIS ingests 3043% more records than MySQL 8.0
+  * InterSystems IRIS is 643% faster than MySQL 8.0 at querying
 
 ## 1 - Running the Speed Test on AWS
 
-Follow [this link](https://github.com/intersystems-community/irisdemo-demo-htap/blob/master/ICM/README.md) to see instructions on how to run this Speed Test on AWS comparing InterSystems IRIS with other databases such as SAP HANA and AWS Aurora.
+Follow [this link](https://github.com/intersystems-community/irisdemo-demo-htap/blob/master/ICM/README.md) to see instructions on how to run this Speed Test on AWS comparing InterSystems IRIS with other databases.
 
-## 2 - Running the Speed Test on Kubernetes
-
-Follow [this link](/Kubernetes/README.md) to see instructions on how to run this Speed Test on Kubernetes. 
-
-## 3 - How to run it on your PC
+## 2 - How to run it on your PC
 
 The pre-requisites for running the speed test on your PC are:
 * Docker and Docker Compose
@@ -66,7 +33,7 @@ The pre-requisites for running the speed test on your PC are:
 
 You can currently run this demo on your PC with InterSystems IRIS, MySQL, SqlServer and SAP HANA.
 
-### 3.1 - Run it with InterSystems IRIS Community
+### 2.1 - Run it with InterSystems IRIS Community
 
 To run the demo on your PC, make sure you have Docker installed on your machine. You can quickly get it up and running with the following commands on your Mac or Linux PC:
 
@@ -117,7 +84,7 @@ docker-compose rm
 
 This is important, specially if you are going back and forth between running the speed test on one database (say InterSystems IRIS) and some other (say MySQL).
 
-### 3.2 - MySQL or MariaDB on your PC
+### 2.2 - MySQL on your PC
 
 To run this demo against MySQL:
 
@@ -141,7 +108,7 @@ In our tests, we found InterSystems IRIS to ingest data 25X faster than MySQL an
 
 There is a **docker-compose-mariadb.yml** file for **MariaDB** as well.
 
-### 3.3 - SQL Server 2019-GA-ubuntu-16.04 on your PC
+### 2.3 - SQL Server 2022 on your PC
 
 To run this demo against SQL Server:
 
@@ -154,25 +121,18 @@ As before, leave this terminal window open and open a browser at http://localhos
 
 In our tests running on a local PC, we found InterSystems IRIS to ingest data 2.5X faster than SQL Server while query rates were 400X faster! We will test it against AWS RDS SQL Server and report.
 
-### 3.4 - SAP Hana on your PC
+### 2.4 - PostgreSQL on your PC
 
-To run the speed test with SAP HANA on your PC you will need:
-* A VM with Ubuntu 18 VM, docker and docker-compose - because SAP HANA requires some changes to the Linux Kernel parameters that we otherwise couldn't do using Docker for Mac or Docker for Windows. Also, SAP HANA requires a Linux Kernel version 4 or superior.
-* Provision at least 9 GB of RAM to this VM otherwise it will not even start! It will crash with an unhelpful error message.
-
-To run this demo against SAP HANA:
+To run this demo against PostgreSQL:
 
 ```bash
-git clone https://github.com/intersystems-community/irisdemo-demo-htap
-cd ./irisdemo-demo-htap
-./run.sh hana
+wget https://raw.githubusercontent.com/intersystems-community/irisdemo-demo-htap/master/docker-compose-postgres.yml
+docker-compose -f ./docker-compose-postgres.yml up
 ```
 
-Wait for the images to download and for the containers to start. You will know when everything is up once docker-compose stops writing to the screen. But be patient - SAP HANA takes about 6 minutes to start! So, your screen will freeze for a minute or so and then you will see SAP HANA writing more text. It will repeat this for about 6 minutes.. Once you see the text "Startup finished!" you should be good to go. If it crashes with an error, it is probably because you need to give it more memory.
+As before, leave this terminal window open and open a browser at http://localhost:10000.
 
-As you can see, it is not just a matter of running docker-compose up as it is with InterSystems IRIS and MySQL. SAP HANA requires some configurations to the Linux Kernel. The run.sh will do these configurations for you.
-
-In our tests running the Speed Test on a VM, we found InterSystems IRIS to be 1.3X faster than SAP HANA for ingesting data, and 20X faster for querying data, and uses a fraction of the memory. 
+In our tests running on a local PC, we found InterSystems IRIS to ingest data 2.5X faster than Postgres while query rates were 400X faster! We will test it against AWS RDS SQL Server and report.
 
 ## 4 - Resources
 

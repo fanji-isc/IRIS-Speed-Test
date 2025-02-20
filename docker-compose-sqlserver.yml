@@ -20,7 +20,7 @@ services:
     - "10000:4200" # Where Node Will be listening
 
   mssqlserver: 
-    image: mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04
+    image: mcr.microsoft.com/mssql/server:2022-latest
     hostname: mssqlserver
     init: true
     container_name: mssqlserver
@@ -40,7 +40,7 @@ services:
     ports:
       - "10002:8080" # Where Springboot Will be listening
     environment:
-      - MASTER_SPEEDTEST_TITLE=SpeedTest | MS SQL Server 2019-GA-ubuntu-16.04
+      - MASTER_SPEEDTEST_TITLE=SpeedTest | MS SQL Server 2022
       - START_CONSUMERS=true
       - INGESTION_THREADS_PER_WORKER=2
       - INGESTION_BATCH_SIZE=1000
