@@ -19,9 +19,24 @@ services:
     ports:
     - "10000:4200" # Where Node Will be listening
 
+  oracle: 
+    image: container-registry.oracle.com/database/free:latest
+    hostname: oracle
+    init: true
+    container_name: oracle
+    mem_limit: 4g
+    cpus: 2 
+    environment:
+      - ORACLE_PASSWORD=oraclepass
+      - ORACLE_SID=ORCLCDB  # Oracle System Identifier (you can change it if needed)
+      - ORACLE_PDB=ORCLPDB1  # Oracle Pluggable Database name
+    ports:
+    - 1521:1521
+    
+
   htapmaster:
-# depends_on: 
-#   - postgres
+    depends_on: 
+    - oracle
     container_name: htapmaster
     hostname: htapmaster
     init: true
@@ -29,14 +44,14 @@ services:
     ports:
       - "10002:8080" # Where Springboot Will be listening
     environment:
-      - MASTER_SPEEDTEST_TITLE=SpeedTest | Oracle Enterprise (19.0)
+      - MASTER_SPEEDTEST_TITLE=SpeedTest | Oracle 
       - START_CONSUMERS=true
       - INGESTION_THREADS_PER_WORKER=2
       - INGESTION_BATCH_SIZE=1000
-      - INGESTION_JDBC_URL=jdbc:oracle:thin:@oracleuser/oraclepass//pb-oracle-test-3.c9amfj7kmxqv.us-east-1.rds.amazonaws.com:1521/SPEED
+      - INGESTION_JDBC_URL=jdbc:oracle:thin:@oracle:1521:ORCL
       - INGESTION_JDBC_USERNAME=oracleuser
       - INGESTION_JDBC_PASSWORD=oraclepass
-      - CONSUMER_JDBC_URL=jdbc:oracle:thin:oracleuser/oraclepass@//pb-oracle-test-3.c9amfj7kmxqv.us-east-1.rds.amazonaws.com:1521/SPEED
+      - CONSUMER_JDBC_URL=jdbc:oracle:thin:@oracle:1521:ORCL
       - CONSUMER_JDBC_USERNAME=oracleuser
       - CONSUMER_JDBC_PASSWORD=oraclepass
       - CONSUMER_THREADS_PER_WORKER=1

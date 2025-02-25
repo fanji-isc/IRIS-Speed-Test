@@ -36,6 +36,18 @@ You can currently run this demo on your PC with InterSystems IRIS, MySQL, SqlSer
 ### 2.1 - Run it with InterSystems IRIS Community
 
 To run the demo on your PC, make sure you have Docker installed on your machine. 
+You can quickly get it up and running with the following commands on your Mac or Linux PC:
+
+```bash
+wget https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/docker-compose.yml
+docker-compose up
+```
+If you are runing on Windows, download the [docker-compose.yml](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/docker-compose.yml) file to a folder. Open a command prompt and change to that folder. Then type:
+
+```bash
+c:\MyFolder\docker-compose up
+```
+
 You can clone this repository to your local machine using git to get the entire source code. You will need git installed and you would need to be on your git folder:
 
 ```bash
@@ -73,9 +85,8 @@ This is important, specially if you are going back and forth between running the
 
 To run this demo against MySQL:
 
-
 ```bash
-cd IRIS-Speed-Test
+wget https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/docker-compose-mysql.yml
 docker-compose -f ./docker-compose-mysql.yml up
 ```
 
@@ -98,7 +109,7 @@ In our tests, we found InterSystems IRIS to ingest data 25X faster than MySQL
 To run this demo against SQL Server:
 
 ```bash
-cd IRIS-Speed-Test
+wget https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/docker-compose-sqlserver.yml
 docker-compose -f ./docker-compose-sqlserver.yml up
 ```
 
@@ -111,13 +122,13 @@ In our tests running on a local PC, we found InterSystems IRIS to ingest data 2.
 To run this demo against PostgreSQL:
 
 ```bash
-cd IRIS-Speed-Test
+wget https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/docker-compose-postgres.yml
 docker-compose -f ./docker-compose-postgres.yml up
 ```
 
 As before, leave this terminal window open and open a browser at http://localhost:10000.
 
-In our tests running on a local PC, we found InterSystems IRIS to ingest data 2.5X faster than Postgres while query rates were 400X faster! We will test it against AWS RDS SQL Server and report.
+In our tests running on a local PC, we found InterSystems IRIS to ingest data 2.5X faster than Postgres while query rates were 400X faster! 
 
 ## 4 - Resources
 
@@ -321,12 +332,10 @@ There are other InterSystems IRIS demo applications that touch different subject
 Here is the list of the supported databases so far:
 
 * **Running on your PC with docker-compose (NO mirroring/replication)**
-  - InterSystems IRIS 2020.2
-  - MySQL 8.0
-  - MariaDB 10.5.4-focal
-  - MS SQL Server 2019-GA-ubuntu-16.04
-  - SAP HANA Express 2.0 (on Linux VM only)
-  - Postgres 12.3
+  - InterSystems IRIS 2024.3
+  - MySQL 9.1.0
+  - MS SQL Server 2022
+  - Postgres 14
 * **Running on AWS:**
   - InterSystems IRIS (with or without mirroring)
   - AWS RDS Aurora (MySql) 5.6.10a (parallel query) with replication 
