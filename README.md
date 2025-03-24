@@ -8,10 +8,10 @@ The same demo can be run on PostgreSQL, MySQL, SqlServer and Amazon Aurora to co
 
 You can run the tests on both your own PC and AWS! Here are some results:
 
-![InterSystems IRIS] (./results/IRIS.png)
-![PostgreSQL 14] (.results/PostgreSQL.png)
-![MySQL 9.1.0] (.results/MySQL.png)
-![MS SQL Server 2022] (.results/SQLserver.png)
+![InterSystems IRIS](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/IRIS.png)
+![PostgreSQL 14](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/PostgreSQL.png)
+![MySQL 9.1.0](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/MySQL.png)
+![MS SQL Server 2022](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/SQLserver.png)
 * InterSystems IRIS x MySQL 9.1.0:
   * InterSystems IRIS ingests 3043% more records than MySQL 8.0
   * InterSystems IRIS is 643% faster than MySQL 8.0 at querying
