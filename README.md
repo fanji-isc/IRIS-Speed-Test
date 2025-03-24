@@ -8,19 +8,29 @@ The same demo can be run on PostgreSQL, MySQL, SqlServer and Amazon Aurora to co
 
 You can run the tests on both your own PC and AWS! Here are some results:
 
-![InterSystems IRIS](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/IRIS.png)
-![PostgreSQL 14](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/PostgreSQL.png)
-![MySQL 9.1.0](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/MySQL.png)
-![MS SQL Server 2022](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/SQLserver.png)
-* InterSystems IRIS x MySQL 9.1.0:
-  * InterSystems IRIS ingests 3043% more records than MySQL 8.0
-  * InterSystems IRIS is 643% faster than MySQL 8.0 at querying
-* InterSystems IRIS x SQL Server 2022
-  - The results were astounding but we can't publish them because SQL Server's EULSA prevents us from doing it.
-  - But you can run the test yourself and find out! :)
 * InterSystems IRIS x Postgres 14:
-  * InterSystems IRIS ingests 3043% more records than MySQL 8.0
-  * InterSystems IRIS is 643% faster than MySQL 8.0 at querying
+  * InterSystems IRIS ingests 61.5% more records than PostgreSQL 14
+  * InterSystems IRIS is 42% faster than PostgreSQL 14 at querying
+* InterSystems IRIS x MySQL 9.1.0:
+  * InterSystems IRIS ingests 1217% more records than MySQL 9.1.0
+  * InterSystems IRIS is 332% faster than MySQL 9.1.0 at querying
+* InterSystems IRIS x SQL Server 2022
+  * InterSystems IRIS ingests 281% faster more records than SQL Server 2022
+  * InterSystems IRIS is 33750% faster than SQL Server 2022 at querying
+
+
+![InterSystems IRIS](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/IRIS.png)
+
+
+![PostgreSQL 14](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/PostgreSQL.png)
+
+
+![MySQL 9.1.0](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/MySQL.png)
+
+
+![MS SQL Server 2022](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/SQLserver.png)
+
+
 
 ## 1 - Running the Speed Test on AWS
 
@@ -332,21 +342,10 @@ There are other InterSystems IRIS demo applications that touch different subject
 ## 14 - Supported Databases
 
 Here is the list of the supported databases so far:
-
-* **Running on your PC with docker-compose (NO mirroring/replication)**
   - InterSystems IRIS 2024.3
   - MySQL 9.1.0
   - MS SQL Server 2022
   - Postgres 14
-* **Running on AWS:**
-  - InterSystems IRIS (with or without mirroring)
-  - AWS RDS Aurora (MySql) 5.6.10a (parallel query) with replication 
-  - AWS RDS SQL Server 2017 Enterprise Edition (production deployment) with replication
-  - AWS RDS Postgres (production deployment) with replication
-  - AWS RDS MariaDB (production deployment) with replication
-  - SAP HANA Express Edition 2.0 without replication
-  - SAP Sybase ASE 16.0 SP03 PL08, public cloud edition, premium version, without replication
-  - AWS RDS Oracle (production deployment) with replication
 
 ## 15 - Report any Issues
   
