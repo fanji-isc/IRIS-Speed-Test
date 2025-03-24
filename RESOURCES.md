@@ -114,9 +114,10 @@ This demo uses docker compose to start five services:
 
 When running the demo on our PCs, we use Docker and Docker Compose. Docker Compose expects a **docker-compose.yml** that describes these services and the docker images they use. This demo actually provides many docker-compose.yml files and more will be added soon:
 * **docker-compose.yml** - This is the default demo that runs the speed test against InterSystems IRIS Community described on the bullets and picture above.
-* **docker-compose-mysql.yml** - This is the speed test against MySQL. You will notice that the same test shows that InterSystems IRIS is 25x faster than MySQL. Running this test against Amazon Aurora MySQL (that is a fine tuned version of MySQL) produced the same results.
-* **docker-compose-sqlserver.yml** - This is the speed test against SqlServer for Dockers. 
-* **docker-compose-enterprise-iris.yml** - If you want to run the speed test demo on InterSystems IRIS standard, there is an example of a docker-compose.yml file for it.
+* **docker-compose-mysql.yml** - This is the speed test against MySQL. 
+* **docker-compose-sqlserver.yml** - This is the speed test against SqlServer.
+* **docker-compose-postgres.yml** - This is the speed test against PostgreSQL. 
+
 
 ### 6 - Can I run this without containers against a random InterSystems IRIS Cluster?
 
@@ -127,13 +128,8 @@ Then, for InterSystems IRIS, look at the files on folder [./standalone_scripts/i
 * **On the Ingestion Workers**: start_ingestion_worker.sh - This script will start the ingestion worker which in turn will connect and register with the master.
 * **On the Query Workers**: start_query_worker.sh - This script will start the query worker which in turn will connect and register with the master.
 
-What about InterSystems IRIS? You have two choices:
+What about InterSystems IRIS? 
 * You can use the start_iris.sh script to start an InterSystems IRIS server on a docker container for a quick test.
-* You can provision your InterSystems IRIS cluster by hand or using ICM. Then you could do fancy things such as:
-  * Have both the ingestion and query workers pointing to the same InterSystems IRIS box
-  * Configure InterSystems IRIS with ECP and have the ingestion workers pointing to the database server while having the query workers pointing to the ECP servers
-  * Configure a sharded InterSystems IRIS cluster
-  * etc.
 
 Just make sure you change your start_master.sh script to configure the environment variables with the correct InterSystems IRIS end points, usernames and passwords.
 

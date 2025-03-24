@@ -142,5 +142,6 @@ A video about this demo is in the works! In the meantime, [here](https://www.int
 
 ### Common Questions and Answers
 
-For answers to frequently asked questions about InterSystems IRIS and other related topics, check out our [Common Questions and Answers](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/RESOURCES.md).
+For answers to frequently asked questions about InterSystems IRIS and other related topics, check out our [Common Questions and Answers](https://github.com/fanji-isc/IRIS-Speed-Test/blob/main/RESOURCES.md).
+
 
