@@ -49,7 +49,7 @@ Before proceeding, make sure you have:
 
 1. **Access the EC2 Instance**
    - Navigate to your Instance console, select the SpeedTest instance you created,click connect 
-   - ECS Instance Connect:
+   - EC2 Instance Connect:
       - Connection Type: select "Connect using EC2 Instance Connect"
    - Click "Connect"
 
@@ -64,7 +64,8 @@ Before proceeding, make sure you have:
    sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
    sudo chmod +x /usr/local/bin/docker-compose 
    ```
-## Step 4 : Run the SpeedTest 
+## Step 4 : Run the Speed Test 
+1. **Run it with InterSystems IRIS Community**
    - Run the below command in your SSH terminal
 
       ```bash
@@ -73,7 +74,34 @@ Before proceeding, make sure you have:
       ```
    - Once all the containers are up and running, open your web browser and navigate to the following URL:
       http:*//YourPublicIP:10000*
-      
-   - You can also run other database by running docker-compose-sqlserver.yml, docker-compose-postgres.yml ect
 
+2. **Run it with Postgres**
+    - Run the below command in your SSH terminal
+
+      ```bash
+      wget https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/docker-compose-postgres.yml
+      docker-compose -f docker-compose-postgres.yml up
+      ```
+   - Once all the containers are up and running, open your web browser and navigate to the following URL:
+      http:*//YourPublicIP:10000*
+
+3. **Run it with SQLServer**
+    - Run the below command in your SSH terminal
+
+      ```bash
+      wget https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/docker-compose-sqlserver.yml
+      docker-compose -f docker-compose-sqlserver.yml up
+      ```
+   - Once all the containers are up and running, open your web browser and navigate to the following URL:
+      http:*//YourPublicIP:10000*
+
+4. **Run it with MySQL**
+    - Run the below command in your SSH terminal
+
+      ```bash
+      wget https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/docker-compose-mysql.yml
+      docker-compose -f docker-compose-mysql.yml up
+      ```
+   - Once all the containers are up and running, open your web browser and navigate to the following URL:
+      http:*//YourPublicIP:10000*
 

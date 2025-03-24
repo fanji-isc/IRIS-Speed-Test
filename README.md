@@ -6,11 +6,12 @@ This demo shows how InterSystems IRIS can ingest thousands of records per second
 
 The same demo can be run on PostgreSQL, MySQL, SqlServer and Amazon Aurora to compare performance and resource utilization in “apples-to-apples” comparisons. 
 
-You can run the tests on AWS! Here are some results:
-******
+You can run the tests on both your own PC and AWS! Here are some results:
 
-
-You can run the tests on your own PC using Dockers (3 CPUs and 7GB of RAM)! Here are some results:
+![InterSystems IRIS] (./results/IRIS.png)
+![PostgreSQL 14] (.results/PostgreSQL.png)
+![MySQL 9.1.0] (.results/MySQL.png)
+![MS SQL Server 2022] (.results/SQLserver.png)
 * InterSystems IRIS x MySQL 9.1.0:
   * InterSystems IRIS ingests 3043% more records than MySQL 8.0
   * InterSystems IRIS is 643% faster than MySQL 8.0 at querying
@@ -23,7 +24,7 @@ You can run the tests on your own PC using Dockers (3 CPUs and 7GB of RAM)! Here
 
 ## 1 - Running the Speed Test on AWS
 
-Follow [this link](https://github.com/intersystems-community/irisdemo-demo-htap/blob/master/ICM/README.md) to see instructions on how to run this Speed Test on AWS comparing InterSystems IRIS with other databases.
+Follow [this link](https://github.com/fanji-isc/IRIS-Speed-Test/blob/main/AWS/README.md) to see instructions on how to run this Speed Test on AWS comparing InterSystems IRIS with other databases.
 
 ## 2 - How to run it on your PC
 
@@ -31,7 +32,7 @@ The pre-requisites for running the speed test on your PC are:
 * Docker and Docker Compose
 * Git - If you want to run all the the tests on your PC or in AWS. If you just want to run the test with InterSystems IRIS, you may not need git.
 
-You can currently run this demo on your PC with InterSystems IRIS, MySQL, SqlServer and SAP HANA.
+You can currently run this demo on your PC with InterSystems IRIS, PostgreSQL, MySQL and SqlServer.
 
 ### 2.1 - Run it with InterSystems IRIS Community
 
@@ -131,6 +132,7 @@ As before, leave this terminal window open and open a browser at http://localhos
 In our tests running on a local PC, we found InterSystems IRIS to ingest data 2.5X faster than Postgres while query rates were 400X faster! 
 
 ## 4 - Resources
+ 
 
 A video about this demo is in the works! In the meantime, [here](https://www.intersystems.com/resources/detail/a-superior-alternative-to-in-memory-databases-and-key-value-stores/) is an interesting article that talks about InterSystems IRIS architecture and what makes it faster.
 
