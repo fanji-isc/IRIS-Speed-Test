@@ -8,12 +8,14 @@ The same demo can be run on PostgreSQL, MySQL, SqlServer and Amazon Aurora to co
 
 You can run the tests on both your own PC and AWS! Here are some results:
 
-* InterSystems IRIS x Postgres 14:
+* InterSystems IRIS x Postgres 14
   * InterSystems IRIS ingests 61.5% more records than PostgreSQL 14
   * InterSystems IRIS is 42% faster than PostgreSQL 14 at querying
-* InterSystems IRIS x MySQL 9.1.0:
+
+* InterSystems IRIS x MySQL 9.1.0
   * InterSystems IRIS ingests 1217% more records than MySQL 9.1.0
   * InterSystems IRIS is 332% faster than MySQL 9.1.0 at querying
+  
 * InterSystems IRIS x SQL Server 2022
   * InterSystems IRIS ingests 281% faster more records than SQL Server 2022
   * InterSystems IRIS is 33750% faster than SQL Server 2022 at querying
