@@ -4,33 +4,33 @@ The capability to ingest thousands or millions of records per second while allow
 
 This demo shows how InterSystems IRIS can ingest thousands of records per second while allowing for simultaneous queries on the data on the same cluster with very high performance for both ingestion and querying, and with low resource utilization. The demo works on a single InterSystems IRIS instance or on an InterSystems IRIS cluster on the cloud.
 
-The same demo can be run on PostgreSQL, MySQL, SqlServer and Amazon Aurora to compare performance and resource utilization in “apples-to-apples” comparisons. 
+The same demo can be run on PostgreSQL, MySQL, SqlServer and MySQL to compare performance and resource utilization in “apples-to-apples” comparisons. 
 
 You can run the tests on both your own PC and AWS! Here are some results:
 
-* InterSystems IRIS x Postgres 14
-  * InterSystems IRIS ingests 61.5% more records than PostgreSQL 14
-  * InterSystems IRIS is 42% faster than PostgreSQL 14 at querying
+* InterSystems IRIS x PostgreSQL 18
+  * InterSystems IRIS ingests 43.5% more records than PostgreSQL 18
+  * InterSystems IRIS is 4.9% faster than PostgreSQL 18 at querying
 
-* InterSystems IRIS x MySQL 9.1.0
-  * InterSystems IRIS ingests 1217% more records than MySQL 9.1.0
-  * InterSystems IRIS is 332% faster than MySQL 9.1.0 at querying
+* InterSystems IRIS x MySQL 9.7.0
+  * InterSystems IRIS ingests 1540% more records than MySQL 9.7.0
+  * InterSystems IRIS is 128% faster than MySQL 9.7.0 at querying
   
-* InterSystems IRIS x SQL Server 2022
-  * InterSystems IRIS ingests 281% faster more records than SQL Server 2022
-  * InterSystems IRIS is 33750% faster than SQL Server 2022 at querying
+* InterSystems IRIS x SQL Server 2025
+  * InterSystems IRIS ingests 570% more records than SQL Server 2025
+  * InterSystems IRIS is 49,932% faster than SQL Server 2025 at querying
 
 
 ![InterSystems IRIS](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/IRIS.png)
 
 
-![PostgreSQL 14](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/PostgreSQL.png)
+![PostgreSQL 18](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/PostgreSQL.png)
 
 
-![MySQL 9.1.0](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/MySQL.png)
+![MySQL 9.7.0](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/MySQL.png)
 
 
-![MS SQL Server 2022](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/SQLserver.png)
+![MS SQL Server 2025](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/SQLserver.png)
 
 
 
@@ -114,7 +114,7 @@ docker-compose -f ./docker-compose-mysql.yml rm
 
 This is important, specially if you are going back and forth between running the speed test on one database (say InterSystems IRIS) and some other.
 
-### 2.3 - SQL Server 2022 on your PC
+### 2.3 - SQL Server 2025 on your PC
 
 To run this demo against SQL Server:
 

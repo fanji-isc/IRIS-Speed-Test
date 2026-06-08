@@ -19,11 +19,17 @@ services:
     ports:
     - "10000:4200" # Where Node Will be listening
 
-  postgres: 
-    image: postgres:14
+  postgres:
+    image: postgres:18
     hostname: postgres
     init: true
     container_name: postgres
+    command:
+      - postgres
+      - -c
+      - max_parallel_workers_per_gather=0
+      - -c
+      - max_parallel_workers=0
     environment:
     - POSTGRES_USER=postgresuser
     - POSTGRES_PASSWORD=postgrespass
@@ -31,7 +37,7 @@ services:
     - 5432:5432
 
   htapmaster:
-    depends_on: 
+    depends_on:
       - postgres
     container_name: htapmaster
     hostname: htapmaster
@@ -39,8 +45,14 @@ services:
     image: intersystemsdc/irisdemo-demo-htap:master-version-2.8.5
     ports:
       - "10002:8080" # Where Springboot Will be listening
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/master/test || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 30s
     environment:
-      - MASTER_SPEEDTEST_TITLE=SpeedTest | PostgreSQL 14
+      - MASTER_SPEEDTEST_TITLE=SpeedTest | PostgreSQL 18
       - START_CONSUMERS=true
       - INGESTION_THREADS_PER_WORKER=2
       - INGESTION_BATCH_SIZE=1000
@@ -55,11 +67,13 @@ services:
       - DATABASE_SIZE_IN_GB=1
 
   ingest-worker1:
-    depends_on: 
-      - htapmaster
+    depends_on:
+      htapmaster:
+        condition: service_healthy
     container_name: ingest-worker1
     hostname: ingest-worker1
     init: true
+    restart: on-failure:3
     image: intersystemsdc/irisdemo-demo-htap:postgres-jdbc-ingest-worker-version-2.8.5
     ports:
       - "10003:8080" # Where Springboot Will be listening
@@ -68,11 +82,13 @@ services:
       - MASTER_PORT=8080
 
   query-worker1:
-    depends_on: 
-      - htapmaster
+    depends_on:
+      htapmaster:
+        condition: service_healthy
     container_name: query-worker1
     hostname: query-worker1
     init: true
+    restart: on-failure:3
     image: intersystemsdc/irisdemo-demo-htap:postgres-jdbc-query-worker-version-2.8.5
     ports:
       - "10004:8080" # Where Springboot Will be listening

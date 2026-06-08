@@ -13,7 +13,7 @@ services:
     - "10000:4200" # Where Node Will be listening
 
   mysqldb: 
-    image: mysql:9.1.0
+    image: mysql:9.7.0
     # command: --default-authentication-plugin=mysql_native_password
     hostname: mysqldb
     init: true
@@ -22,7 +22,7 @@ services:
       - MYSQL_ROOT_PASSWORD=mysqlpass
 
   htapmaster:
-    depends_on: 
+    depends_on:
       - mysqldb
     container_name: htapmaster
     hostname: htapmaster
@@ -30,8 +30,14 @@ services:
     image: intersystemsdc/irisdemo-demo-htap:master-version-2.8.5
     ports:
       - "10002:8080" # Where Springboot Will be listening
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/master/test || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 30s
     environment:
-      - MASTER_SPEEDTEST_TITLE=SpeedTest | MySQL 9.1.0
+      - MASTER_SPEEDTEST_TITLE=SpeedTest | MySQL 9.7.0
       - START_CONSUMERS=true
       - INGESTION_THREADS_PER_WORKER=2
       - INGESTION_BATCH_SIZE=1000
@@ -45,11 +51,13 @@ services:
       - CONSUMER_TIME_BETWEEN_QUERIES_IN_MILLIS=0
 
   ingest-worker1:
-    depends_on: 
-      - htapmaster
+    depends_on:
+      htapmaster:
+        condition: service_healthy
     container_name: ingest-worker1
     hostname: ingest-worker1
     init: true
+    restart: on-failure:3
     image: intersystemsdc/irisdemo-demo-htap:mysql-jdbc-ingest-worker-version-2.8.5
     ports:
       - "10003:8080" # Where Springboot Will be listening
@@ -58,11 +66,13 @@ services:
       - MASTER_PORT=8080
 
   query-worker1:
-    depends_on: 
-      - htapmaster
+    depends_on:
+      htapmaster:
+        condition: service_healthy
     container_name: query-worker1
     hostname: query-worker1
     init: true
+    restart: on-failure:3
     image: intersystemsdc/irisdemo-demo-htap:mysql-jdbc-query-worker-version-2.8.5
     ports:
       - "10004:8080" # Where Springboot Will be listening
