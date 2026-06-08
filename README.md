@@ -9,16 +9,16 @@ The same demo can be run on PostgreSQL, MySQL, SqlServer and MySQL to compare pe
 You can run the tests on both your own PC and AWS! Here are some results:
 
 * InterSystems IRIS x PostgreSQL 18
-  * InterSystems IRIS ingests 43.5% more records than PostgreSQL 18
-  * InterSystems IRIS is 4.9% faster than PostgreSQL 18 at querying
+  * InterSystems IRIS ingests 76.7% more records than PostgreSQL 18
+  * InterSystems IRIS is 23.7% faster than PostgreSQL 18 at querying
 
 * InterSystems IRIS x MySQL 9.7.0
-  * InterSystems IRIS ingests 1540% more records than MySQL 9.7.0
-  * InterSystems IRIS is 128% faster than MySQL 9.7.0 at querying
+  * InterSystems IRIS ingests 936% more records than MySQL 9.7.0
+  * InterSystems IRIS is 213% faster than MySQL 9.7.0 at querying
   
 * InterSystems IRIS x SQL Server 2025
-  * InterSystems IRIS ingests 570% more records than SQL Server 2025
-  * InterSystems IRIS is 49,932% faster than SQL Server 2025 at querying
+  * InterSystems IRIS ingests 369% more records than SQL Server 2025
+  * InterSystems IRIS is 37,545% faster than SQL Server 2025 at querying
 
 
 ![InterSystems IRIS](https://raw.githubusercontent.com/fanji-isc/IRIS-Speed-Test/refs/heads/main/results/IRIS.png)
